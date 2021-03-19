@@ -1,12 +1,15 @@
 import Category from "../models/Category";
 
-export interface ICategoryDTO {
+interface ICategoryDTO {
   name: string;
   description: string;
 }
 
-export default interface ICategoriesRepository {
+interface ICategoriesRepository {
   create(data: ICategoryDTO): Category;
-  findByName(name: string): Category;
+  findByName(categoryName: string): Category;
   list(): Category[];
 }
+
+export { ICategoryDTO };
+export default ICategoriesRepository;

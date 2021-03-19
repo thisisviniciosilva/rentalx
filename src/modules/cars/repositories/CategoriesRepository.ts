@@ -1,7 +1,7 @@
 import Category from "../models/Category";
-import ICategoryRepository, { ICategoryDTO } from "./ICategoriesRepository";
+import ICategoriesRepository, { ICategoryDTO } from "./ICategoriesRepository";
 
-class CategoriesRepository implements ICategoryRepository {
+class CategoriesRepository implements ICategoriesRepository {
   categories: Category[];
 
   constructor() {
@@ -21,8 +21,10 @@ class CategoriesRepository implements ICategoryRepository {
     return this.categories;
   }
 
-  findByName(name: string): Category {
-    const category = this.categories.find((category) => category.name === name);
+  findByName(categoryName: string): Category {
+    const category = this.categories.find(
+      (category) => category.name === categoryName
+    );
 
     return category;
   }
