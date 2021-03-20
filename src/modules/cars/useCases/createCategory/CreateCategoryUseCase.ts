@@ -6,7 +6,7 @@ interface IRequestDTO {
   name: string;
 }
 
-class CreateCategoryService {
+class CreateCategoryUseCase {
   constructor(private categoriesRepository: ICategoriesRepository) {}
 
   execute({ description, name }: IRequestDTO): Category {
@@ -22,4 +22,4 @@ class CreateCategoryService {
   }
 }
 
-export default CreateCategoryService;
+export default CreateCategoryUseCase;
