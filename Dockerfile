@@ -1,6 +1,6 @@
 FROM node
 
-WORKDIR /c/Docker/App
+WORKDIR /usr/app
 
 COPY package.json ./
 
