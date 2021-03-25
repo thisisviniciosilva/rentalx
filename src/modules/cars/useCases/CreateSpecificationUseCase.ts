@@ -1,3 +1,5 @@
+import { inject, injectable } from "tsyringe";
+
 import Specification from "../entities/Specification";
 import ISpecificationRepository from "../repositories/ISpecificationsRepository";
 
@@ -6,8 +8,12 @@ interface IRequestDTO {
   name: string;
 }
 
-class CreateSpecificationUseCase {
-  constructor(private specificationsRepository: ISpecificationRepository) {}
+@injectable()
+export default class CreateSpecificationUseCase {
+  constructor(
+    @inject("SpecificationsRepository")
+    private specificationsRepository: ISpecificationRepository
+  ) {}
 
   execute({ description, name }: IRequestDTO): Specification {
     const specificationAlreadyExists = this.specificationsRepository.findByName(
@@ -26,5 +32,3 @@ class CreateSpecificationUseCase {
     return specification;
   }
 }
-
-export default CreateSpecificationUseCase;
