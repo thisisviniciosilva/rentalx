@@ -1,5 +1,5 @@
-import Specification from "../../entities/Specification";
-import ISpecificationRepository from "../../repositories/ISpecificationsRepository";
+import Specification from "../entities/Specification";
+import ISpecificationRepository from "../repositories/ISpecificationsRepository";
 
 interface IRequestDTO {
   description: string;
