@@ -44,11 +44,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": { "type": "string" },
-                  "description": { "type": "string" }
-                },
+                "$ref": "#/definitions/Category",
                 "example": {
                   "name": "Category name sample",
                   "description": "Category description sample"
@@ -71,10 +67,14 @@
         "requestBody": {
           "content": {
             "multipart/form-data": {
-              "schema": "object",
-              "properties": {
-                "name": { "type": "string" },
-                "description": { "type": "string" }
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
               }
             }
           }
@@ -93,11 +93,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": { "type": "string" },
-                  "description": { "type": "string" }
-                },
+                "$ref": "#/definitions/Specification",
                 "example": {
                   "name": "Specification name sample",
                   "description": "Specification description sample"
@@ -110,6 +106,22 @@
           "201": { "description": "Created" },
           "400": { "description": "Specification already exists" }
         }
+      }
+    }
+  },
+  "definitions": {
+    "Category": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "Specification": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" }
       }
     }
   }
