@@ -15,8 +15,8 @@ export default class CreateSpecificationUseCase {
     private specificationsRepository: ISpecificationRepository
   ) {}
 
-  execute({ description, name }: IRequestDTO): Specification {
-    const specificationAlreadyExists = this.specificationsRepository.findByName(
+  async execute({ description, name }: IRequestDTO): Promise<Specification> {
+    const specificationAlreadyExists = await this.specificationsRepository.findByName(
       name
     );
 
@@ -24,7 +24,7 @@ export default class CreateSpecificationUseCase {
       throw new Error("Specification already exists.");
     }
 
-    const specification = this.specificationsRepository.create({
+    const specification = await this.specificationsRepository.create({
       description,
       name,
     });
