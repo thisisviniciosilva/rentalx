@@ -13,14 +13,12 @@ export default class UsersRepository implements IUsersRepository {
 
   async create({
     name,
-    username,
     email,
     password,
     driver_license,
   }: IUserDTO): Promise<User> {
     const element = this.repository.create({
       name,
-      username,
       email,
       password,
       driver_license,
