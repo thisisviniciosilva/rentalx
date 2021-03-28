@@ -1,6 +1,7 @@
 import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
 
+import AppError from "../../../errors/AppError";
 import IUserDTO from "../dtos/IUserDTO";
 import User from "../entities/User";
 import IUsersRepository from "../repositories/IUsersRepository";
@@ -21,7 +22,7 @@ export default class CreateUserUseCase {
     const emailAlreadyUsed = await this.usersRepository.findByEmail(email);
 
     if (emailAlreadyUsed) {
-      throw new Error("Email already used.");
+      throw new AppError("Email already used.");
     }
 
     const passwordHash = await hash(password, 8);
