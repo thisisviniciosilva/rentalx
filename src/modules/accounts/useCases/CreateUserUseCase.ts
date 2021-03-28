@@ -18,6 +18,12 @@ export default class CreateUserUseCase {
     password,
     driver_license,
   }: IUserDTO): Promise<User> {
+    const emailAlreadyUsed = await this.usersRepository.findByEmail(email);
+
+    if (emailAlreadyUsed) {
+      throw new Error("Email already used.");
+    }
+
     const passwordHash = await hash(password, 8);
 
     const user = await this.usersRepository.create({
