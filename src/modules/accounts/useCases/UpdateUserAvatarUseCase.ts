@@ -1,11 +1,6 @@
 import { inject, injectable } from "tsyringe";
 
-// // TODO Add avatar column on users
-// // TODO Refactor entity User (add avatar)
-// TODO Configure upload file (multer)
-// TODO Create use case's upload file avatar
-// TODO Create controller
-
+import deleteFile from "../../../utils/deleteFile";
 import IUsersRepository from "../repositories/IUsersRepository";
 
 interface IRequest {
@@ -22,6 +17,10 @@ export default class UpdateUserAvatarUseCase {
 
   async execute({ userId, avatarFile }: IRequest): Promise<void> {
     const user = await this.usersRepository.findById(userId);
+
+    if (user.avatar) {
+      await deleteFile(`./tmp/avatars/${user.avatar}`);
+    }
 
     user.avatar = avatarFile;
 
