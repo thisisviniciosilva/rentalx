@@ -25,7 +25,8 @@ export class CreateCategories1616618297116 implements MigrationInterface {
             default: "now()",
           },
         ],
-      })
+      }),
+      true
     );
   }
 

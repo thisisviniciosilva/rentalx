@@ -21,6 +21,9 @@ export default class User {
   @Column()
   admin: boolean;
 
+  @Column()
+  avatar: string;
+
   @CreateDateColumn()
   created_at: Date;
 
@@ -28,6 +31,7 @@ export default class User {
     if (!this.id) {
       this.id = uuidv4();
       this.admin = false;
+      this.avatar = "";
     }
   }
 }

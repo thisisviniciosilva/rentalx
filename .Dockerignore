@@ -5,12 +5,12 @@ logs/
 passwords.txt
 
 # Ignoring node modules
-node_modules
+/node_modules
 
 #Ignoring git and cache folders
-.git
-.cache
+*/.git
+*/.cache
 
 #Ignoring all the markdown and class files
-*.md
+*/*.md
 **/*.class

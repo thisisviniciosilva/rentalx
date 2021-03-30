@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { NextFunction, Request, Response } from "express";
 
 import AppError from "../errors/AppError";
@@ -8,8 +7,8 @@ export default function handleErrors(
   request: Request,
   response: Response,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  next: NextFunction
-) {
+  _: NextFunction
+): Response {
   if (error instanceof AppError) {
     const { message, statusCode } = error;
 

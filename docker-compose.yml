@@ -17,7 +17,8 @@ services:
       - app-network
 
   app:
-    build: .
+    # build: .
+    image: rentx
     container_name: rentxApp
     restart: always
     ports:
