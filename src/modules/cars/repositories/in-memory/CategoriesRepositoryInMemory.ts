@@ -9,19 +9,16 @@ export default class CategoriesRepositoryInMemory
     const category = new Category();
 
     Object.assign(category, { name, description });
+    this.categories.push(category);
 
     return category;
   }
 
   async findByName(name: string): Promise<Category> {
-    const category = this.categories.find((category) => category.name === name);
-
-    return category;
+    return this.categories.find((category) => category.name === name);
   }
 
   async list(): Promise<Category[]> {
-    const list = this.categories;
-
-    return list;
+    return this.categories;
   }
 }
