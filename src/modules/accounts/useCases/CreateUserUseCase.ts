@@ -1,9 +1,10 @@
 import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
 
-import AppError from "../../../errors/AppError";
+import AppError from "@shared/errors/AppError";
+
 import IUserDTO from "../dtos/IUserDTO";
-import User from "../entities/User";
+import User from "../infra/typeorm/entities/User";
 import IUsersRepository from "../repositories/IUsersRepository";
 
 @injectable()

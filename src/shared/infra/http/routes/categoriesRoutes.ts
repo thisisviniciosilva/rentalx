@@ -1,10 +1,11 @@
 import { Router } from "express";
 import multer from "multer";
 
+import CreateCategoryController from "@modules/cars/controllers/CreateCategoryController";
+import ImportCategoryController from "@modules/cars/controllers/ImportCategoryController";
+import ListCategoriesController from "@modules/cars/controllers/ListCategoriesController";
+
 import ensureAuthenticated from "../middlewares/ensureAuthenticated";
-import CreateCategoryController from "../modules/cars/controllers/CreateCategoryController";
-import ImportCategoryController from "../modules/cars/controllers/ImportCategoryController";
-import ListCategoriesController from "../modules/cars/controllers/ListCategoriesController";
 
 const categoriesRoutes = Router();
 const upload = multer({

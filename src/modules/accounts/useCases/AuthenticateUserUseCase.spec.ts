@@ -1,4 +1,5 @@
-import AppError from "../../../errors/AppError";
+import AppError from "@shared/errors/AppError";
+
 import IUserDTO from "../dtos/IUserDTO";
 import UsersRepositoryInMemory from "../repositories/in-memory/UsersRepositoryInMemory";
 import IUsersRepository from "../repositories/IUsersRepository";
