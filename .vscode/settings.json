@@ -1,8 +1,12 @@
 {
   "cSpell.words": [
+    "commitlint",
     "dtos",
     "middlewares",
+    "postgres",
     "rentx",
+    "rentxdb",
+    "respawn",
     "tsyringe",
     "typeorm",
     "uuidv",
