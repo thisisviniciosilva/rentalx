@@ -1,11 +1,17 @@
+import { inject, injectable } from "tsyringe";
+
 import AppError from "@shared/errors/AppError";
 
 import ICreateCarDTO from "../dtos/ICreateCarDTO";
 import Car from "../infra/typeorm/entities/Car";
 import ICarsRepository from "../repositories/ICarsRepository";
 
+@injectable()
 export default class CreateCarUseCase {
-  constructor(private carsRepository: ICarsRepository) {}
+  constructor(
+    @inject("CarsRepository")
+    private carsRepository: ICarsRepository
+  ) {}
 
   async execute({
     brand,

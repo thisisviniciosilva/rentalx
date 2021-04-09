@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["dtos", "rentx", "uuidv", "tsyringe", "typeorm", "varchar"]
+  "cSpell.words": [
+    "dtos",
+    "middlewares",
+    "rentx",
+    "tsyringe",
+    "typeorm",
+    "uuidv",
+    "varchar"
+  ]
 }
